@@ -11,14 +11,11 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-full">
         <div className="flex flex-col min-h-screen">
-
-        <Header/>
-        <main className="flex-grow">
-        {children}
-        </main>
-        <Footer />
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
         </div>
-        </body>
+      </body>
     </html>
   );
 }
