@@ -6,6 +6,7 @@ export default function Header() {
             <Link href="/">Home</Link>
             <Link href="/dashboard">Dashboard</Link>
             <Link href="/posts">Posts</Link>
+            <Link href="/register">Register</Link>
             <Link href="/about">About</Link>
         </header>
     )
