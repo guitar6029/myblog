@@ -1,17 +1,19 @@
 "use server";
 
-export async function register(state, formData) {
-    
-    
-    await new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(true);
-        }, 4000)
-    })
-    
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const confirmPassword = formData.get("confirmPassword");
-    console.log(`email ${email}, password ${password}, confirmPassword ${confirmPassword}`);
+import { RegisterFormSchema } from "@/lib/rules";
 
+export async function register(state, formData) {
+  const validateFields = RegisterFormSchema.safeParse({
+    email: formData.get("email"),
+    password: formData.get("password"),
+    confirmPassword: formData.get("confirmPassword"),
+  });
+
+  if (!validateFields.success) {
+    return {
+      errors: validateFields.error.flatten().fieldErrors,
+    };
+  }
+
+  console.log("formData", formData);
 }

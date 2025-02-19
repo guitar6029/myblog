@@ -22,6 +22,7 @@ export default function Register() {
           className="border-2 border-black p-1 rounded-sm"
           required
         />
+        {state?.errors.email && <span className="text-red-600">{state.errors.email}</span>}
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -29,6 +30,7 @@ export default function Register() {
           className="border-2 border-black p-1 rounded-sm"
           required
         />
+        {state?.errors.password && <span className="text-red-600">{state.errors.password}</span>}
         <label htmlFor="confirmPassword">Confirm Password</label>
         <input
           type="password"
@@ -36,6 +38,7 @@ export default function Register() {
           className="border-2 border-black p-1 rounded-sm"
           required
         />
+        {state?.errors.confirmPassword && <span className="text-red-600">{state.errors.confirmPassword}</span>}
         <button
           type="submit"
           disabled={isPending}
