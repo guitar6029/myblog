@@ -6,6 +6,7 @@ export default function Header() {
             <div>
                 <span>Blog</span>
             </div>
+            <Link href="/dashboard">Dashboard</Link>
             <Link href="/posts">Posts</Link>
             <Link href="/about">About</Link>
         </header>

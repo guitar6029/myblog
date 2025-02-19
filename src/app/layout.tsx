@@ -9,12 +9,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="h-full">
+        <div className="flex flex-col min-h-screen">
+
         <Header/>
-        <main>
+        <main className="flex-grow">
         {children}
         </main>
         <Footer />
+        </div>
         </body>
     </html>
   );
