@@ -19,7 +19,7 @@ export default function Login() {
         <input type="password" name="password" id="password" className="text-black" />
 
         <button type="submit" disabled={isPending}
-          className={`${isPending ? "bg-neutral-600" : "bg-black"} text-white p-1 rounded-sm mt-2`}>Login</button>
+          className={`${isPending ? "bg-neutral-800" : "bg-black"} text-white p-1 rounded-sm mt-2`}>Login</button>
         <hr className="mt-4" />
         <div className="flex flex-row items-center justify-center gap-2">
           <span>Don&apos;t have an account?</span>

@@ -10,7 +10,10 @@ html{
 
 
 body {
-    background: linear-gradient(to bottom, #181818, #0f0f0d);
+    background: url("../assets/images/darkBgYellowSplatter.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: #fff;
 }
 

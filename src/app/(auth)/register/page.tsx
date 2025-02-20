@@ -47,7 +47,7 @@ export default function Register() {
           type="submit"
           disabled={isPending}
           className={`${
-            isPending ? "bg-neutral-600" : "bg-black"
+            isPending ? "bg-neutral-800" : "bg-black"
           } p-1 rounded-sm mt-2 text-white`}
         >
           Register

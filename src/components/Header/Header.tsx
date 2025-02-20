@@ -14,7 +14,7 @@ export default async function Header() {
 
   return (
     <header
-      className={`${farwrith.className} flex flex-row justify-between items-center p-4 bg-neutral-800 gap-2 text-white`}
+      className={`${farwrith.className} flex flex-row justify-between items-center p-4 bg-neutral-900 gap-2 text-white`}
     >
       <div className="flex flex-row items-center gap-4">
         <MyLink linkPath="/" text="Home" />
