@@ -20,3 +20,15 @@ export const RegisterFormSchema = z
       });
     }
   });
+
+
+  export const LoginFormSchema = z
+  .object({
+    email: z
+    .string()
+    .email({message: "Please enter a valid email"})
+    .min(6)
+    .max(50)
+    .trim(),
+    password: z.string().min(8).max(50).trim(),
+  })

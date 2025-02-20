@@ -16,10 +16,10 @@ body {
 
 
 .link-text{
-    font-size: 3.5rem;
+    font-size: 3rem;
     padding: .75rem;
+    letter-spacing: 2px;
     transition: all 0.2s ease-in;
-    background: transparent;
     &:hover{
         color: #f6fa12;
     }
@@ -27,6 +27,7 @@ body {
 
 .active {
     transition: all 0.2s ease-in;
-    background: #081108;
+    background: #141514;
+    border-radius: 10px;
     color:#ec0c0c;
 }

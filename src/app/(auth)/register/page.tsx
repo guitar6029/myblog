@@ -3,11 +3,9 @@ import Link from "next/link";
 import { useActionState } from "react";
 import { register } from "@/actions/auth";
 
-
 export default function Register() {
   const [state, action, isPending] = useActionState(register, undefined);
 
-  
   return (
     <div className="min-h-screen flex flex-col items-center">
       <form
@@ -19,30 +17,38 @@ export default function Register() {
         <input
           type="email"
           name="email"
-          className="border-2 border-black p-1 rounded-sm"
+          className="border-2 border-black p-1 rounded-sm text-black"
           required
         />
-        {state?.errors.email && <span className="text-red-600">{state.errors.email}</span>}
+        {state?.errors?.email && (
+          <span className="text-red-600">{state.errors?.email}</span>
+        )}
         <label htmlFor="password">Password</label>
         <input
           type="password"
           name="password"
-          className="border-2 border-black p-1 rounded-sm"
+          className="border-2 border-black p-1 rounded-sm text-black"
           required
         />
-        {state?.errors.password && <span className="text-red-600">{state.errors.password}</span>}
+        {state?.errors?.password && (
+          <span className="text-red-600">{state.errors?.password}</span>
+        )}
         <label htmlFor="confirmPassword">Confirm Password</label>
         <input
           type="password"
           name="confirmPassword"
-          className="border-2 border-black p-1 rounded-sm"
+          className="border-2 border-black p-1 rounded-sm text-black"
           required
         />
-        {state?.errors.confirmPassword && <span className="text-red-600">{state.errors.confirmPassword}</span>}
+        {state?.errors?.confirmPassword && (
+          <span className="text-red-600">{state.errors?.confirmPassword}</span>
+        )}
         <button
           type="submit"
           disabled={isPending}
-          className={`${isPending ? "bg-neutral-600" : "bg-black"} text-white p-1 rounded-sm mt-2`}
+          className={`${
+            isPending ? "bg-neutral-600" : "bg-black"
+          } p-1 rounded-sm mt-2 text-white`}
         >
           Register
         </button>
