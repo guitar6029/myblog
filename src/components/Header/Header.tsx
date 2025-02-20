@@ -3,6 +3,7 @@
 import { farwrith } from "@/fonts/fonts";
 import MyLink from "../Link/MyLink";
 import getAuthUser from "@/lib/getAuthUser";
+import { logout } from "@/actions/auth";
 
 
 export default async function Header() {
@@ -23,7 +24,12 @@ export default async function Header() {
       </div>
       <div className="flex flex-row items-center gap-2">
         {authuser ? (
+          <>
           <MyLink linkPath="/account" text="Account" />
+          <form action={logout} >
+            <button type="submit">Logout</button>
+          </form>
+          </>
         ): (
           <>
           <MyLink linkPath="/login" text="Login" />

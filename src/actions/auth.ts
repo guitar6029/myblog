@@ -5,6 +5,7 @@ import { RegisterFormSchema, LoginFormSchema } from "@/lib/rules";
 import { createSession } from "@/lib/session";
 import bcrypt from "bcrypt";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 type FormData = {
   email: string;
@@ -70,7 +71,7 @@ export async function login(state, formData: LoginFormData) {
   }
 
   //if password is good, then create the session
-  await createSession(exisitingUser._id);
+  await createSession(exisitingUser._id.toString());
 
   //redirect to the home page
   redirect("/dashboard");
@@ -133,4 +134,20 @@ export async function register(state, formData: FormData) {
 
   // Redirect to the dashboard after successful registration
   redirect("/dashboard");
+}
+
+
+export async function logout() {
+  console.log('logout called');
+  const cookiesStore = await cookies();
+  cookiesStore.delete("sessionToken");
+
+  // Add error handling and confirmation message
+  try {
+    console.log('try to logout');
+    cookiesStore.delete("sessionToken");
+    redirect("/");
+  } catch (error) {
+    console.error("Failed to logout:", error);
+  }
 }
