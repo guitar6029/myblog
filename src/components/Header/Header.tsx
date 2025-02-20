@@ -1,11 +1,11 @@
 import Link from "next/link";
-import localFont from 'next/font/local';
+import { farwrith } from "@/fonts/fonts";
 
-const myFont = localFont({src: '../../fonts/Farwrith.ttf'});
+
 
 export default function Header() {
   return (
-    <header className={`${myFont.className} flex flex-row justify-between items-center p-4 bg-neutral-900 gap-2 text-white`}>
+    <header className={`${farwrith.className} flex flex-row justify-between items-center p-4 bg-neutral-900 gap-2 text-white`}>
       <div className="flex flex-row items-center gap-4">
         <Link href="/" className="link-text">Home</Link>
         <Link href="/dashboard" className="link-text">Dashboard</Link>
