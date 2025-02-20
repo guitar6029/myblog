@@ -17,8 +17,16 @@ body {
 
 .link-text{
     font-size: 3.5rem;
-    transition: all 0.2s ease-in-out;
+    padding: .75rem;
+    transition: all 0.2s ease-in;
+    background: transparent;
     &:hover{
         color: #f6fa12;
     }
+}
+
+.active {
+    transition: all 0.2s ease-in;
+    background: #081108;
+    color:#ec0c0c;
 }
