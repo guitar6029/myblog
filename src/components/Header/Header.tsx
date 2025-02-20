@@ -1,48 +1,35 @@
-"use client";
+"use server";
+
 import { farwrith } from "@/fonts/fonts";
 import MyLink from "../Link/MyLink";
+import getAuthUser from "@/lib/getAuthUser";
 
-export default function Header() {
 
+export default async function Header() {
+  
+  const authuser = await getAuthUser();
+  console.log(authuser);
 
-  const myLinks = [
-    {
-      linkPath: "/",
-      text: "Home"
-    },
-    {
-      linkPath: "/dashboard",
-      text: "Dashboard"
-    },
-    {
-      linkPath: "/posts",
-      text: "Posts"
-    },
-    {
-      linkPath: "/about",
-      text: "About"
-    },
-    {
-      linkPath: "/login",
-      text: "Login"
-    },
-    {
-      linkPath: "/register",
-      text: "Register"
-    }
-  ]
 
   return (
-    <header className={`${farwrith.className} flex flex-row justify-between items-center p-4 bg-neutral-800 gap-2 text-white`}>
+    <header
+      className={`${farwrith.className} flex flex-row justify-between items-center p-4 bg-neutral-800 gap-2 text-white`}
+    >
       <div className="flex flex-row items-center gap-4">
-        {myLinks.slice(0, 4).map((link, index) => (
-          <MyLink key={index} linkPath={link.linkPath} text={link.text} />
-        ))}
+        <MyLink linkPath="/" text="Home" />
+        <MyLink linkPath="/posts" text="Posts" />
+        <MyLink linkPath="/about" text="About" />
+
       </div>
       <div className="flex flex-row items-center gap-2">
-        {myLinks.slice(4).map((link, index) => (
-          <MyLink key={index} linkPath={link.linkPath} text={link.text} />
-        ))}
+        {authuser ? (
+          <MyLink linkPath="/account" text="Account" />
+        ): (
+          <>
+          <MyLink linkPath="/login" text="Login" />
+          <MyLink linkPath="/register" text="Register" />
+          </>
+        )}
       </div>
     </header>
   );
